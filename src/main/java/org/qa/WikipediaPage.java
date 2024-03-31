@@ -3,6 +3,11 @@ package org.qa;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
 public class WikipediaPage {
 
     private final WebDriver driver;
@@ -31,8 +36,13 @@ public class WikipediaPage {
         return suggestion.getText();
     }
 
+//    public void clickSearchSuggestion() {
+//        driver.findElement(searchSuggestion).click();
+//    }
     public void clickSearchSuggestion() {
-        driver.findElement(searchSuggestion).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement suggestionElement = wait.until(ExpectedConditions.elementToBeClickable(searchSuggestion));
+        suggestionElement.click();
     }
 
     public String getSearchResultTitleText() {
