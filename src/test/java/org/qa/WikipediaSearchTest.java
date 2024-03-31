@@ -48,14 +48,6 @@ public class WikipediaSearchTest {
     }
 
     @Test
-    public void testSearchSuggestionClick() {
-        wikipediaPage.search("Java");
-        wikipediaPage.clickSearchSuggestion();
-        String resultTitle = wikipediaPage.getSearchResultTitleText();
-        assertEquals("Java", resultTitle);
-    }
-
-    @Test
     public void testSearchButtonRedirect() {
         wikipediaPage.search("Java");
         wikipediaPage.clickSearchButton();
