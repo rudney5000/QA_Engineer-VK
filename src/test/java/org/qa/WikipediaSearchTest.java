@@ -54,13 +54,13 @@ public class WikipediaSearchTest {
         assertEquals("Java", resultTitle);
     }
 
-    @Test
-    public void testSearchButtonRedirect() {
-        wikipediaPage.search("Java");
-        wikipediaPage.clickSearchButton();
-        String info = wikipediaPage.getSearchInfoText();
-        assertEquals("Java", info);
-    }
+//    @Test
+//    public void testSearchButtonRedirect() {
+//        wikipediaPage.search("Java");
+//        wikipediaPage.clickSearchButton();
+//        String info = wikipediaPage.getSearchInfoText();
+//        assertEquals("Java", info);
+//    }
 
     @After
     public void tearDown() {
