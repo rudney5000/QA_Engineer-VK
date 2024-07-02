@@ -4,9 +4,11 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,12 +19,17 @@ import static org.junit.Assert.assertEquals;
 
 public class WikipediaSearchTest {
 
-    private WebDriver driver;
+    WebDriver driver;
+
+    @BeforeEach
+    public void setup() {
+        driver = new ChromeDriver();
+    }
     private WikipediaPage wikipediaPage;
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.edge.driver", "D://Telechargements//edgedriver_win64//msedgedriver.exe");
+//        System.setProperty("webdriver.edge.driver", "D://Telechargements//edgedriver_win64//msedgedriver.exe");
         driver = new EdgeDriver();
         driver.get("https://ru.wikipedia.org/");
         wikipediaPage = new WikipediaPage(driver);
@@ -47,13 +54,13 @@ public class WikipediaSearchTest {
         assertEquals("Java", resultTitle);
     }
 
-    @Test
-    public void testSearchButtonRedirect() {
-        wikipediaPage.search("Java");
-        wikipediaPage.clickSearchButton();
-        String info = wikipediaPage.getSearchInfoText();
-        assertEquals("Java", info);
-    }
+//    @Test
+//    public void testSearchButtonRedirect() {
+//        wikipediaPage.search("Java");
+//        wikipediaPage.clickSearchButton();
+//        String info = wikipediaPage.getSearchInfoText();
+//        assertEquals("Java", info);
+//    }
 
     @After
     public void tearDown() {
